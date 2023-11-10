@@ -1,0 +1,173 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: hsl(0, 0%, 94%);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+main {
+  background-color: white;
+  width: 500px;
+  padding: 30px;
+  border-radius: 10px 10px 150px 10px;
+}
+.bd {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  color: hsl(0, 1%, 44%);
+  & label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+  & input {
+    display: block;
+    width: 75px;
+    padding: 12px;
+    border: 1px solid hsl(0, 0%, 86%);
+    border-radius: 6px;
+    outline: none;
+    &::placeholder {
+      font-weight: 800;
+      font-size: 15px;
+    }
+    &:focus {
+      border-color: hsl(259, 100%, 65%);
+    }
+  }
+}
+article {
+  display: flex;
+  align-items: center;
+  & hr {
+    flex: 1;
+    border: 1px solid hsl(0, 0%, 86%);
+  }
+  & span {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: hsl(259, 100%, 65%);
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: hsl(0, 0%, 8%);
+    }
+    & img {
+      width: 28px;
+    }
+  }
+}
+.show-age {
+  & p {
+    font-size: 60px;
+    margin: 0;
+    font-weight: 900;
+    font-style: italic;
+  }
+  & span {
+    color: hsl(259, 100%, 65%);
+  }
+}
+.err {
+  position: relative;
+  color: red;
+  &::after {
+    position: absolute;
+    font-size: 8px;
+    width: 150px;
+    bottom: -18px;
+    left: -5px;
+    text-transform: capitalize;
+    font-weight: normal;
+  }
+  & input {
+    border-color: red;
+    &:focus {
+      border-color: red;
+    }
+  }
+}
+.blank {
+  &::after {
+    content: "can't be blank";
+  }
+}
+.invalidDate {
+  &::after {
+    content: "invalid date";
+  }
+}
+.invalidday {
+  &::after {
+    content: "Must be valid day";
+  }
+}
+.invalidYear {
+  &::after {
+    content: "Must be valid Year";
+  }
+}
+.past {
+  &::after {
+    content: "Must be in the past";
+  }
+}
+.invalidMonth {
+  &::after {
+    content: "Must be valid month";
+  }
+}
+@media (max-width: 530px) {
+  main {
+    width: 90%;
+  }
+  .bd {
+    gap: 10px;
+    justify-content: space-between;
+    & input {
+      padding: 10px;
+    }
+  }
+  .err::after {
+    width: 100%;
+    font-size: 7px;
+    bottom: -24px;
+    left: 2px;
+  }
+  article {
+    position: relative;
+    margin-top: 40px;
+    display: block;
+    & span {
+      margin: auto;
+      z-index: 1;
+      position: relative;
+    }
+    & hr {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-460%);
+      width: 100%;
+    }
+  }
+  .show-age p {
+    font-size: 40px;
+  }
+}
